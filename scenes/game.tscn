@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://ciapuwj8egoar"]
+[gd_scene load_steps=12 format=4 uid="uid://ciapuwj8egoar"]
 
 [ext_resource type="PackedScene" uid="uid://dvgvwr8peiuog" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cupifbweupsf8" path="res://assets/sprites/world_tileset.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bs6stx52n5sby" path="res://scenes/platform.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://2gdncgcvtmnq" path="res://scenes/coin.tscn" id="4_lbhrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_yqjtg")
@@ -213,6 +214,14 @@ _data = {
 &"move": SubResource("Animation_lnu2h")
 }
 
+[sub_resource type="Animation" id="Animation_iywne"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p57ef"]
+_data = {
+&"new_animation": SubResource("Animation_iywne")
+}
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -238,3 +247,35 @@ libraries = {
 &"": SubResource("AnimationLibrary_iywne")
 }
 autoplay = "move"
+
+[node name="Coin" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(24, 38)
+
+[node name="Coin2" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(160, 70)
+
+[node name="Coin3" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(-26, -33)
+
+[node name="Coin4" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(144, -41)
+
+[node name="Coin5" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(323, 39)
+
+[node name="Coin7" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(359, 39)
+
+[node name="Coin8" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(380, 39)
+
+[node name="Coin9" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(402, 39)
+
+[node name="Coin6" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(340, 39)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Coin6"]
+libraries = {
+&"": SubResource("AnimationLibrary_p57ef")
+}
